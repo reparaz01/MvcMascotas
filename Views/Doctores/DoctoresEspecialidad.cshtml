@@ -1,0 +1,36 @@
+﻿@model List<Doctor>
+<h1> Doctores Especialidad </h1>
+
+<form method="post">
+    <label> Intoduce Especialidad</label>
+    <input type="text" name="especialidad" class="form-control" />
+    <button> Buscar</button>
+</form>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> Apellido</th>
+            <th> Especialidad</th>
+            <th> Salario</th>
+            <th> IdHospital</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Doctor d in Model)
+        {
+            <tr>
+                <td> @d.Apellido</td>
+                <td> @d.Especialidad</td>
+                <td> @d.Salario</td>
+                <td> @d.IdHospital</td>
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>

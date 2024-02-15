@@ -1,0 +1,44 @@
+﻿@model List<Doctor>
+
+<h1> Doctores manin</h1>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> Apellido</th>
+            <th> Especialidad</th>
+            <th> Salario</th>
+            <th> Hospital Cod</th>
+            <th> Detalles </th>
+            <th> Editar </th>
+            <th> Eliminar </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Doctor d in Model)
+        {
+            <tr>
+                <td> @d.Apellido</td>
+                <td> @d.Especialidad</td>
+                <td> @d.Salario</td>
+                <td> @d.IdHospital</td>
+                <td>
+                    @Html.ActionLink("Details", "Details","Hospitales", new {idhospital = d.IdDoctor})
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit","Hospitales", new {idhospital = d.IdDoctor})
+                </td>
+
+                <td>
+                    @Html.ActionLink("Delete", "Index","Hospitales", new {eliminar = d.IdDoctor})
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<p> <a class="navlink" asp-controller="Doctores" asp-action="DoctoresEspecialidad"> Crear Hospital </a></p>
